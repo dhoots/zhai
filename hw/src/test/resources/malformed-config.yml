@@ -1,9 +1,0 @@
-# hw/src/test/resources/malformed-config.yml
-# Malformed YAML for testing
-appName: "Malformed App"
-server:
-  host: "localhost"
-  port: 8080
-  this is not valid yaml
-featureFlags:
-  newDashboard: true
