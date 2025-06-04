@@ -1,0 +1,42 @@
+# hw/src/main/resources/config.yml
+appName: "My Application"
+version: "1.0.0"
+server:
+  host: "localhost"
+  port: 8080
+featureFlags:
+  newDashboard: true
+  dataExport: false
+vmPool:
+  maxSize: 100
+  idleTimeout: "PT30M" # ISO-8601 duration format (30 minutes)
+  defaultOs: "ubuntu-latest"
+labelVmMappings:
+  - label: "gpu-intensive"
+    vmSeriesSize: "n1-standard-4"
+    osImage: "ubuntu-20.04"
+    region: "us-west1"
+    vnet: "vnet-prod"
+    subnet: "subnet-runners"
+    networkSecurityGroup: "nsg-runners"
+    diskTypeSize: "SSD-200GB"
+    runnersPerVm: 2
+    poolParameters:
+      minimumWarmVms: 2
+      maximumPoolSize: 10
+      scaleUpTriggerThreshold: 3
+      idleTimeout: "PT1H"
+  - label: "memory-optimized"
+    vmSeriesSize: "m1-ultralarge"
+    osImage: "ubuntu-20.04"
+    region: "us-east1"
+    vnet: "vnet-prod"
+    subnet: "subnet-runners"
+    networkSecurityGroup: "nsg-runners"
+    diskTypeSize: "SSD-500GB"
+    runnersPerVm: 1
+    poolParameters:
+      minimumWarmVms: 1
+      maximumPoolSize: 5
+      scaleUpTriggerThreshold: 2
+      idleTimeout: "PT45M"

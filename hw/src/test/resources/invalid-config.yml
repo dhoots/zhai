@@ -1,0 +1,44 @@
+# hw/src/test/resources/invalid-config.yml
+# Valid YAML but missing required fields for validation testing
+
+# Missing appName (required)
+version: "1.0-test"
+server:
+  # Missing host (required)
+  port: 9090
+featureFlags:
+  newDashboard: false
+  dataExport: true
+vmPool:
+  maxSize: 50
+  idleTimeout: "PT15M"
+  # Missing defaultOs (required)
+labelVmMappings:
+  - label: "test-gpu"
+    vmSeriesSize: "test-gpu-vm"
+    osImage: "test-os-1"
+    region: "test-region-1"
+    vnet: "test-vnet-1"
+    subnet: "test-subnet-1"
+    networkSecurityGroup: "test-nsg-1"
+    diskTypeSize: "test-disk-1"
+    runnersPerVm: 1
+    poolParameters:
+      minimumWarmVms: 1
+      maximumPoolSize: 10
+      scaleUpTriggerThreshold: 2
+      idleTimeout: "PT30M"
+  - # Missing label (required)
+    vmSeriesSize: "test-mem-vm"
+    osImage: "test-os-2"
+    region: "test-region-2"
+    vnet: "test-vnet-2"
+    subnet: "test-subnet-2"
+    networkSecurityGroup: "test-nsg-2"
+    diskTypeSize: "test-disk-2"
+    runnersPerVm: 3
+    poolParameters:
+      minimumWarmVms: 2
+      maximumPoolSize: 20
+      scaleUpTriggerThreshold: 3
+      idleTimeout: "PT45M"

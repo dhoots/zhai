@@ -1,0 +1,15 @@
+{
+  "action": "completed",
+  "workflow_job": {
+    "id": 12345678,
+    "run_id": 87654321,
+    "status": "completed",
+    "labels": [
+      "android-small",
+      "self-hosted"
+    ],
+    "repository": {
+      "full_name": "eBayMobile/andr_core"
+    }
+  }
+}
